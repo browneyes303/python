@@ -11,7 +11,9 @@
 
 # name_of_user = input("WHAT IS YOUR NAME? ")
 # x = name_of_user.upper()
-# print("HELLO {}, IT IS VERY NICE TO MEET YOU!".format(x))
+
+# print("HELLO {}!".format(x))
+# print(f"YOUR NAME HAS {len(name_of_user)} LETTERS IN IT! AWESOME!")
 
 #? 3. Madlib
 
@@ -92,7 +94,7 @@
 # height = 5
 
 # for i in range(height,0,-1):
-#     print('*' * 5)
+#     print('*' * height)
 
 #? 10. Print a Square II
 
@@ -165,14 +167,16 @@
 #     else:
 #         print('Bye')
 
-
+# //TODO #4 not finished
 #? 4. Print a Box
 
-width = int(input("Width?  " ))
-height = int(input("Height?  " ))
+width = 6 # int(input("Width?  " ))
+height = 5 # int(input("Height?  " ))
 
+print('*' * width)
 for i in range(height,0,-1):
-    print('*' * height)
+    print('*' * + (width-height))
+print('*' * width)
 
 #? 5. Print a Triangle
 
