@@ -1,15 +1,15 @@
 
 import pickle
 
-phonebook = {}
-
-with open("phonebook.pickle", "rb") as fh:
-    phonebook = pickle.load(fh)
-    
+try:
+    with open("phonebook.pickle", "rb") as fh:
+        phonebook = pickle.load(fh)
+except:
+    phonebook = {}
 
 def add_contact(name, phone):
     phonebook[name] = phone
-
+    print(f"Entry stored for {name}")
 
 run_phonebook = True
 
@@ -26,24 +26,31 @@ while run_phonebook:
     '''))
 
     if selection == 1:
-        find_contact = input("Enter name to look up: ")
-        if find_contact in phonebook:
-            result = phonebook[find_contact]
-            print(find_contact, result)
+        name = input("Enter name: ")
+        if name in phonebook:
+            print(f"{name} {phonebook[name]}")
+        else:
+            print("Contact not found")
 
     elif selection == 2:
+
         add_name = input("Enter a name to add: ")
         add_phone = input("Enter phone to add: ")
         add_contact(add_name,add_phone)
 
     elif selection == 3:
+
         del_contact = input("Enter a name to delete: ")
         if del_contact in phonebook:
             del phonebook[del_contact]
+            print("Contact deleted")
+        else:
+            print("Contact not found")
 
     elif selection == 4:
-        for contact in phonebook.items():
-            print(f"Contact: {contact}")
+
+        for name, phonenumber in phonebook.items():
+            print(f"Name: {name}, Phone: {phonenumber}")
 
     elif selection == 5:
         run_phonebook = False
